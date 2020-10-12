@@ -10,6 +10,23 @@
   </head>
 
   <body>
+    <header class="header">
+        <%= link_to "間隔単語", root_path, class:"top-btn" %>
+        <div class="user-gide">
+          <% if user_signed_in? %>
+            <%= nickname さん class:"user-btn" %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :destroy, class:"user-btn" %>
+          <% else %>
+            <%= link_to '新規登録', new_user_registration_path, class:"user-btn" %>
+            <%= link_to 'ログイン',new_user_session_path, class:"user-btn" %>
+          <% end %>
+        </div>
+    </header>
     <%= yield %>
+    <footer>
+      <div class="footer">
+        <p class="foot"> ©2019 Hyperyolo. All rights reserved.</p>
+      </div>
+    </footer>
   </body>
 </html>
