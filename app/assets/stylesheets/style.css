@@ -747,7 +747,6 @@ header.header {
   height: 70px;
   display: flex;
   justify-content: space-between;
-
 }
 
 .top-btn {
@@ -772,6 +771,14 @@ header.header {
 }
 
 /* body */
+
+.body {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  padding: 20
+}
+
 .learn-box {
   margin: 40px;
 }
