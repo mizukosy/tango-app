@@ -23,6 +23,8 @@ Things you may want to cover:
 
 * ...
 
+# アプリケーション名：単語帳
+
 
 ## users テーブル
 | colum        | type   | options     |
@@ -31,42 +33,42 @@ Things you may want to cover:
 | email        | string | null: false |
 
 ### Association
-- has_many :memories
-- has_many :genres,  throught: user_genres
-- has_many :user_genres
+- has_many :questions
 
 
-## genre テーブル
-| colum    | type    | options      |
-| -------- | ------- | ------------ |
-| genre_id | integer | null: false  |
-
-### Association
-- has_many :users,  throught: user_genres
-- has_many :user_genres
-- has_many :memories
-
-
-## user_genres テーブル
-| colum    | type       | options                        |
-| -------- | ---------- | ------------------------------ |
-| user_id  | references | null: false, foregen_key: true |
-| genre_id | references | null: false, foregen_key: true |
-
-### Association
-- belongs_to: user
-- belongs_to: genre
-
-
-## memoryies テーブル
+## questions テーブル
 | colum       | type       | options                          |
 | ----------- | ---------- | -------------------------------- |
-| question    | string     | null: false                      |
-| answer      | string     | null: false                      |
-| level       | integer    | null: false                      |
-| next_answer | date       | null: false                      |
-| user        | references | null: false, foregen_key: true   |
+| question    | text       | null: false                      |
+| user_id     | references | null: false, foregen_key: true   |
+| next_dar_id | references | null: false, foregen_key: true   |
 
 ### Association
 - belongs_to :user
-- belongs_to :genre
+- has_one: answer
+- has_one: next_day
+
+## answers テーブル
+| colum       | type       | options                          |
+| ----------- | ---------- | -------------------------------- |
+| answer      | text       | null: false                      |
+| user        | references | null: false, foregen_key: true   |
+| question    | references | null: false, foregen_key: ture   |
+| next_day_id | references | null: false, foregen_key: true   |
+
+### Association
+- belongs_to :user
+- belongs_to :question
+- has_one: next_day
+
+## next_day テーブル
+| colum       | type       | options                          |
+| ----------- | ---------- | -------------------------------- |
+| level       | integer    | null: false                      |
+| next_answer | date       | null: false                      |
+| question_id | references | null: false, foregen_key: true   |
+| answer_id   | references | null: false, foregen_key: true   |
+
+### Association
+- belongs_to :question
+- belongs_to :answer
