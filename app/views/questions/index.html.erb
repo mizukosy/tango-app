@@ -1,0 +1,38 @@
+<div class="top-image">
+  <%# 単語ボタン %>
+  <div class="learn-box">
+    <ul class="learn-tags">
+      <%= link_to "開始", root_path, class:"start-tag" %>
+      <%= link_to "作成", new_question_path, class:"new-tag" %>
+      <li class="edit-tag">  編集 </li>
+    </ul>
+  </div>
+
+  <%# 単語一覧 %>
+  <div class="q-a-index">
+      <% @question.each do |q| %>
+      <div class="q-a-box">
+        <% if user_signed_in? && q.user_id == current_user.id %>
+          <div class='genre-tag'>
+            <%= q.genre.name  %>
+          </div>
+          <div class="q-a-tag">
+            <div>
+              <%= image_tag q.image, class:'q-img' if q.image.attached? %>
+            </div>
+            <div class='question-tag' >
+              問題：<%= q.question %>
+            </div>
+            <div class='answer-tag'>
+              答え：<%= q.answer %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <% end %>
+  </div>
+
+  <%# 実施の結果 %>
+  <div class="result-box">
+  </div>
+</div>
