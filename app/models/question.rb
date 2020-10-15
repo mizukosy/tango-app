@@ -1,10 +1,15 @@
 class Question < ApplicationRecord
   belongs_to :user
-  belongs_to :answer
-  
+  has_one :count
+  has_one_attached :image
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :genre
 
-  validates :question, :genre, puresence: true
-  validates :genre_id, numericality: { other_than: 1 }
+  with_options presence: true do
+    validates :question
+    validates :answer
+    validates :genre_id, numericality: { other_than: 1 }
+  end
+
 end

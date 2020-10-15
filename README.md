@@ -30,45 +30,31 @@ Things you may want to cover:
 | colum        | type   | options     |
 | ------------ | ------ | ----------- |
 | nickname     | string | null: false |
-| email        | string | null: false |
 
 ### Association
 - has_many :questions
 
 
 ## questions テーブル
-| colum       | type       | options                          |
-| ----------- | ---------- | -------------------------------- |
-| question    | text       | null: false                      |
-| user_id     | references | null: false, foregen_key: true   |
-| next_dar_id | references | null: false, foregen_key: true   |
+| colum    | type       | options                        |
+| -------- | ---------- | ------------------------------ |
+| question | text       | null: false                    |
+| answer   | text       | null: false                    |
+| genre_id | integer    | null: false,                   |
+| user     | references | null: false, foregen_key: true |
 
 ### Association
 - belongs_to :user
-- has_one: answer
-- has_one: next_day
+- has_one: count
 
-## answers テーブル
-| colum       | type       | options                          |
-| ----------- | ---------- | -------------------------------- |
-| answer      | text       | null: false                      |
-| user        | references | null: false, foregen_key: true   |
-| question    | references | null: false, foregen_key: ture   |
-| next_day_id | references | null: false, foregen_key: true   |
 
-### Association
-- belongs_to :user
-- belongs_to :question
-- has_one: next_day
-
-## next_day テーブル
-| colum       | type       | options                          |
-| ----------- | ---------- | -------------------------------- |
-| level       | integer    | null: false                      |
-| next_answer | date       | null: false                      |
-| question_id | references | null: false, foregen_key: true   |
-| answer_id   | references | null: false, foregen_key: true   |
+## counts テーブル
+| colum       | type       | options                        |
+| ----------- | ---------- | ------------------------------ |
+| right_wrong | integer    | null: false                    |
+| level       | integer    | null: false                    |
+| answer_day  | date       | null: false                    |
+| question    | references | null: false, foregen_key: true |
 
 ### Association
 - belongs_to :question
-- belongs_to :answer
