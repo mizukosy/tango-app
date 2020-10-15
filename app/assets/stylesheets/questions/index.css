@@ -1,0 +1,39 @@
+.q-a-index {
+  margin: 5vw;
+}
+
+.q-a-box {
+  height: 15%;
+  margin-bottom: 10px;
+}
+
+.genre-tag {
+  background-color: black;
+  color: white;
+  height: 20px;
+  width: 10vw;
+}
+
+.q-a-tag {
+  display: inline-block;
+}
+.q-img {
+  width: 20vh;
+  height: 20vh;
+  float: left;
+}
+
+.question-tag {
+  font-size: 25px;
+  background-color: powderblue;
+  height: 9vh;
+  width: 90vw
+}
+
+.answer-tag {
+  font-size: 25px;
+  background-color: yellowgreen;
+  height: 10vh;
+  width: 90vw;
+  margin-top: 1vh;
+}

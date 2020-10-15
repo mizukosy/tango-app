@@ -1,0 +1,44 @@
+.q-a-lavel {
+  display: block;
+  margin: 10px 0px 5px 30px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.q-a-text {
+  width: 50vw;
+  margin: 10px;
+  height: 200px;
+}
+
+.g-field {
+  width: 70vw;
+  margin: 20px; 
+}
+
+.g-lavel {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.g-select {
+  font-size: 10px;
+  height: 30px;
+  width: 25vw;
+  display: block;
+}
+
+.action {
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+}
+
+.action-btn {
+  margin: auto;
+  height: 80px;
+  width: 161px;
+  font-size: 40px;
+  color: white;
+  background-color: black;
+}
