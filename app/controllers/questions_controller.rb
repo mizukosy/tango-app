@@ -46,14 +46,14 @@ class QuestionsController < ApplicationController
     params.require(:question).permit(:question, :answer, :genre_id, :image).merge(user_id: current_user.id)
   end
 
-  def move_to_index
-    unless user_signed_in?
-      redirect_to action: :index
-    end
-  end
-
   def select_question
     @question = Question.find(params[:id])
+  end
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to root_path
+    end
   end
 
 end
