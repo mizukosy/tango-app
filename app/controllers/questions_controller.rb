@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :move_to_index, except: [:index]
+  before_action :select_question, only: [:show, :edit, :update, :destroy]
 
 
   def index
@@ -20,7 +21,23 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question.Question.find
+  end
+
+  def edit
+  end
+
+  def update
+    @question.update(question_params)
+    if @question.save
+      redirect_to question_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @question.delete
+    redirect_to root_path
   end
 
   private
@@ -33,6 +50,10 @@ class QuestionsController < ApplicationController
     unless user_signed_in?
       redirect_to action: :index
     end
+  end
+
+  def select_question
+    @question = Question.find(params[:id])
   end
 
 end
