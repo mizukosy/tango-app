@@ -12,4 +12,12 @@ class Question < ApplicationRecord
     validates :genre_id, numericality: { other_than: 1 }
   end
 
+  def previous
+    user.questions.order('created_at desc, id desc').where('created_at <= ? and id < ?', created_at, id).first
+  end
+
+  def next
+    user.questions.order('created_at desc, id desc').where('created_at >= ? and id > ?', created_at, id).reverse.first
+  end
+
 end

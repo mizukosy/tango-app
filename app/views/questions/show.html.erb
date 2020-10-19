@@ -1,0 +1,34 @@
+
+<%# 単語表示 %>
+<div class="q-a-index" >
+  <ul id="question">
+    <div class="q-a-box" >
+      <div class='genre-tag' >
+        <%= @question.genre.name  %>
+      </div>
+      <div class="q-a-tag">
+        <%= image_tag @question.image, class:'q-img' if @question.image.attached? %>
+        <li class="question-tag"><%= @question.question %></li>
+        <li class="answer-tag" id="answer-tag"><%= @question.answer %></li>
+      </div>
+    </div>
+  </ul>
+</div>
+
+<%# 問題遷移 %>
+<div class="links" >
+  <div class="change-btn">
+    <%= link_to "＜ 前の問題", question_path(@question.previous), class: "change-link" if @question.previous %>
+  </div>
+  <div class="change-btn">
+    <%= link_to "次の問題 ＞", question_path(@question.next), class:"change-link" if @question.next %>
+  </div>
+</div>
+
+<%# 単語編集ボタン %>
+  <div class="learn-box">
+    <div class="learn-tags">
+      <%= link_to "編集", edit_question_path(@question.id), class:"start-tag" %>
+      <%= link_to "削除", question_path(@question.id),method: :delete, class:"new-tag" %>
+    </div>
+  </div>

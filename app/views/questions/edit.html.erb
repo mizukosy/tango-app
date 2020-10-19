@@ -1,0 +1,22 @@
+<div class="body">
+  <%= form_with(model: @question, url:question_path(@question.id), method: :patch, local: true) do |f| %>
+    <%#= render 'error_messages', model: @user_donation %>
+    <div class="q-field">
+      <%= f.label :question, "問題", class:"q-a-lavel" %>
+      <%= f.text_field :question, class:"q-a-text" %>
+      <%= f.file_field :image, class:"q-a-image" %>
+    </div>
+    <div class="a-field">
+      <%= f.label :question, "解答", class:"q-a-lavel" %>
+      <%= f.text_field :answer, class:"q-a-text" %>
+    </div>
+    <div class="g-field" >
+      <%= f.label :prefecture, "ジャンル", class:"g-lavel" %>
+      <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"g-select"}) %>
+    </div>
+    <div class="action">
+      <%= f.submit "修正", class:"action-btn" %>
+    </div>
+
+  <% end %>
+</div>

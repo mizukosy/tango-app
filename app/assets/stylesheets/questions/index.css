@@ -15,19 +15,18 @@
 }
 
 .q-a-tag {
-  display: inline-block;
+  display: block;
 }
 .q-img {
   width: 20vh;
   height: 20vh;
   float: left;
 }
-
 .question-tag {
   font-size: 25px;
   background-color: powderblue;
   height: 9vh;
-  width: 90vw
+  width: 90vw;
 }
 
 .answer-tag {
@@ -36,4 +35,5 @@
   height: 10vh;
   width: 90vw;
   margin-top: 1vh;
+  visibility:hidden;
 }
