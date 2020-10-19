@@ -61,12 +61,6 @@ html {
   /* 2 */
 }
 
-/*
- * Remove default margin. */
-body {
-  margin: 0;
-}
-
 /* ==========================================================================
  * Links
  * ========================================================================== */
@@ -770,13 +764,18 @@ header.header {
   font-weight: 700;
 }
 
+/* header */
+.header {
+  display: block;
+  margin-bottom: 20px;
+}
+
 /* body */
 
 .body {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  padding: 20
+  margin: 50px auto 10px;
+  width: 90vw;
+  padding: 0px 5vw;
 }
 
 .learn-box {

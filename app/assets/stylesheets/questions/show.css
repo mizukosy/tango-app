@@ -1,0 +1,25 @@
+.q-a-index {
+  margin: 5vw;
+}
+
+.links {
+  width: 500px;
+  height: 50px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.change-btn {
+  width: 200px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.change-link {
+  font-size: 25px;
+  color: white;
+  font-style: italic;
+}

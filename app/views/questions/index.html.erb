@@ -1,35 +1,32 @@
 <div class="top-image">
   <%# 単語ボタン %>
   <div class="learn-box">
-    <ul class="learn-tags">
-      <%= link_to "開始", root_path, class:"start-tag" %>
+    <div class="learn-tags">
+      <%= link_to "開始", counts_path, class:"start-tag" %>
       <%= link_to "作成", new_question_path, class:"new-tag" %>
-      <li class="edit-tag">  編集 </li>
-    </ul>
+    </div>
   </div>
 
   <%# 単語一覧 %>
-  <div class="q-a-index">
+  <div class="q-a-index" >
+    <ul id="question">
       <% @question.each do |q| %>
-      <div class="q-a-box">
-        <% if user_signed_in? && q.user_id == current_user.id %>
-          <div class='genre-tag'>
-            <%= q.genre.name  %>
-          </div>
-          <div class="q-a-tag">
-            <div>
+        <%= link_to question_path(q.id) do %>
+        <div class="q-a-box"  >
+          <% if user_signed_in? && q.user_id == current_user.id %>
+            <div class='genre-tag' >
+              <%= q.genre.name  %>
+            </div>
+            <div class="q-a-tag">
               <%= image_tag q.image, class:'q-img' if q.image.attached? %>
+              <li class="question-tag"><%= q.question %></li>
+              <li class="answer-tag" ><%= q.answer %></li>
             </div>
-            <div class='question-tag' >
-              問題：<%= q.question %>
-            </div>
-            <div class='answer-tag'>
-              答え：<%= q.answer %>
-            </div>
-          </div>
+          <% end %>
+        </div>
         <% end %>
-      </div>
       <% end %>
+    </ul>
   </div>
 
   <%# 実施の結果 %>
