@@ -3,4 +3,7 @@ ja:
    attributes:
      user:
        nickname: ニックネーム
-    
+     questioｎ:
+       question: 問題
+       answer: 解答
+       genre_id: ジャンル
