@@ -4,17 +4,18 @@
   <ul id="question">
     <div class="q-a-box"  >
       <div class='genre-tag' >
-        <%#= @question.genre.name  %>
+        <%= @question.genre.name  %>
       </div>
       <div class="q-a-tag">
-        <%#= image_tag @question.image, class:'q-img' if @question.image.attached? %>
+        <%= image_tag @question.image, class:'q-img' if @question.image.attached? %>
         <li class="question-tag"><%= @question.question %></li>
-        <li class="answer-tag" id="answer"><%= @question.answer %></li>
+        <li class="answer-tag" id="answer-tag"><%= @question.answer %></li>
       </div>
     </div>
   </ul>
 </div>
 
+<%# 画面遷移 %>
 <div class="links" >
   <div class="change-btn">
     <%= link_to "＜ 前の問題", question_path(@question.previous), class: "change-link" if @question.previous %>
