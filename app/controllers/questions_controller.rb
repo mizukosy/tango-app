@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :move_to_index, except: [:index]
-  before_action :select_question, only: [:show, :edit, :update, :destroy]
+  before_action :select_question, only: [:edit, :update, :destroy]
 
   def index
     @questions = Question.where(user_id: current_user.id)
@@ -20,6 +20,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    @question = Question.find(params[:id])
   end
 
   def edit
