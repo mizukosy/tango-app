@@ -2,7 +2,7 @@
   <%# 単語ボタン %>
   <div class="learn-box">
     <div class="learn-tags">
-      <%= link_to "開始", counts_path, class:"start-tag" %>
+      <%= link_to "開始", question_path(@questions.ids), class:"start-tag" %>
       <%= link_to "作成", new_question_path, class:"new-tag" %>
     </div>
   </div>
@@ -10,7 +10,7 @@
   <%# 単語一覧 %>
   <div class="q-a-index" >
     <ul id="question">
-      <% @question.each do |q| %>
+      <% @questions.each do |q| %>
         <%= link_to question_path(q.id) do %>
         <div class="q-a-box"  >
           <% if user_signed_in? && q.user_id == current_user.id %>

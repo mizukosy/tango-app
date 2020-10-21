@@ -2,9 +2,8 @@ class QuestionsController < ApplicationController
   before_action :move_to_index, except: [:index]
   before_action :select_question, only: [:show, :edit, :update, :destroy]
 
-
   def index
-    @question = Question.all
+    @questions = Question.where(user_id: current_user.id)
   end
 
   def new
@@ -55,5 +54,4 @@ class QuestionsController < ApplicationController
       redirect_to root_path
     end
   end
-
 end

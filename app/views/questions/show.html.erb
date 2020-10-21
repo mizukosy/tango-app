@@ -21,7 +21,11 @@
     <%= link_to "＜ 前の問題", question_path(@question.previous), class: "change-link" if @question.previous %>
   </div>
   <div class="change-btn">
-    <%= link_to "次の問題 ＞", question_path(@question.next), class:"change-link" if @question.next %>
+    <% if @question.next %>
+      <%= link_to "次の問題 ＞", question_path(@question.next), class:"change-link" %>
+    <% else %>
+      <%= link_to "トップへ", root_path,class:"change-link" %>
+    <% end %>
   </div>
 </div>
 
