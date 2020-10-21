@@ -3,7 +3,8 @@ class QuestionsController < ApplicationController
   before_action :select_question, only: [:edit, :update, :destroy]
 
   def index
-    @questions = Question.where(user_id: current_user.id)
+    @questions = Question.all
+    # @questions = Question.where(user_id: current_user.id)
   end
 
   def new
