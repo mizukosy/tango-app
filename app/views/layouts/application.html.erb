@@ -11,7 +11,7 @@
 
   <body>
     <header class="header">
-        <%= link_to "間隔単語", root_path, class:"top-btn" %>
+        <%= link_to "単語帳", root_path, class:"top-btn" %>
         <div class="user-gide">
           <% if user_signed_in? %>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"user-btn" %>

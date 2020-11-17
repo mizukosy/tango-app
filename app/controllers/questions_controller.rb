@@ -4,7 +4,6 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.all
-    # @questions = Question.where(user_id: current_user.id)
   end
 
   def new

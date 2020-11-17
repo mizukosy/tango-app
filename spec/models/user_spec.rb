@@ -17,7 +17,7 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("ニックネームを入力してください")
       end
-      it "既に同じ名前のニックネームが存在する場合は、登録する事ができない" do
+      it "既に同じ名ニックネームが存在する場合は、登録できない" do
         @user.save
         another_user = FactoryBot.build(:user)
         another_user.nickname = @user.nickname
@@ -51,7 +51,7 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません", "パスワードは6文字以上で入力してください")
       end
-      it "passwordとpassword_confirmationが不一致では登録できないこと" do
+      it "passwordとpassword_confirmationが一致していなければ登録できない" do
         @user.password = "123456"
         @user.password_confirmation = "1234567"
         @user.valid?
